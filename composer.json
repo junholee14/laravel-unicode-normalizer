@@ -1,0 +1,40 @@
+{
+    "name": "junholee14/laravel-unicode-normalizer",
+    "description": "A set of features to make working with unicode normalization in Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Junholee14\\LaravelUnicodeNormalizer\\": "src/"
+        }
+    },
+  "autoload-dev": {
+        "psr-4": {
+            "Junholee14\\LaravelUnicodeNormalizer\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "junholee14",
+            "email": "junho2545@naver.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.46"
+    },
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.21",
+        "pestphp/pest": "^2.34"
+    }
+}
