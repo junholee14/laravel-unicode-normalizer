@@ -9,11 +9,16 @@ final class UnicodeNormalizationProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/unicode_normalizer.php', 'unicode_normalizer');
-        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
+        if ($this->app->runningInConsole()) {
             $this->publishes([
-                    __DIR__ . '/../config/unicode_normalizer.php' => config_path('unicode_normalization.php')
-                ], 'config');
+                    __DIR__ . '/../resources/lang' => resource_path('lang/vendor/laravelUnicodeNormalizer')
+                ], 'lang');
+            $this->publishes([
+                __DIR__ . '/../config/unicode-normalizer.php' => config_path('unicode-normalization.php')
+            ], 'config');
         }
+
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'laravelUnicodeNormalizer');
+        $this->mergeConfigFrom(__DIR__ . '/../config/unicode-normalizer.php', 'unicode-normalizer');
     }
 }
