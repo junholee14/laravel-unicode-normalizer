@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Junholee14\LaravelUnicodeNormalizer\Middlewares\NormalizeUnicode;
 
 it('can normalize unicode in query string successfully', function () {
@@ -63,6 +62,22 @@ it('can normalize unicode in multi dimensional array in json successfully', func
 
     // then
     expect($result['nfd']['nfd'])->toBe($nfc);
+});
+
+test('empty json passes', function () {
+    // given
+    $middleware = new NormalizeUnicode();
+    $request = new Request();
+    $next = function ($request) {
+        return $request;
+    };
+    $request->headers->set('Content-Type', 'application/json');
+
+    // when
+    $result = $middleware->handle($request, $next)->getContent();
+
+    // then
+    expect($result)->toBe('');
 });
 
 it('can normalize unicode in form data successfully', function () {

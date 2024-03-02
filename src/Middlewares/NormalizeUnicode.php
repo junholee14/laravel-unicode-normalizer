@@ -53,6 +53,9 @@ class NormalizeUnicode
     private function processJson(Request $request)
     {
         $decodedContent = json_decode($request->getContent(), true);
+        if ($decodedContent === null) {
+            return;
+        }
 
         $isModified = false;
         array_walk_recursive($decodedContent, function (&$item) use (&$isModified) {
