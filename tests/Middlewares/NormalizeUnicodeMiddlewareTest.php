@@ -84,7 +84,6 @@ it('can normalize unicode in form data successfully', function () {
     expect($result)->toBe($nfc);
 });
 
-// multi dimensional array in form data
 it('can normalize unicode in multi dimensional array in form data successfully', function () {
     // given
     $middleware = new NormalizeUnicode();
