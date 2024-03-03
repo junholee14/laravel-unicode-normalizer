@@ -12,7 +12,9 @@ class NormalizeUnicode implements ValidationRule
         if (is_string($value) && !empty($value)) {
             $normalizationForm = config('unicode-normalizer.normalization_form', Normalizer::FORM_C);
             if (!Normalizer::isNormalized($value, $normalizationForm)) {
-                $fail('validation.normalize_unicode')->translate(['attribute' => $attribute]);
+                $fail(
+                    __('laravelUnicodeNormalizer::validation.normalize_unicode')
+                );
             }
         }
     }
