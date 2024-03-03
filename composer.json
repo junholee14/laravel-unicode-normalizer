@@ -41,5 +41,12 @@
         "orchestra/testbench": "^6.23|^7.0|^8.0|^9.0",
         "pestphp/pest": "^1.23|^2.6",
         "phpstan/phpstan": "^1.10"
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Junholee14\\LaravelUnicodeNormalizer\\UnicodeNormalizationProvider"
+        ]
+      }
     }
 }
