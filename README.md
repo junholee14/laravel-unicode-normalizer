@@ -18,6 +18,8 @@ After installation, you can publish the package configuration using:
 ```bash
 php artisan vendor:publish --provider="Junholee14\LaravelUnicodeNormalizer\UnicodeNormalizationProvider"
 ```
+The default normalization form is `NFC`. You can change this in the published configuration file.
+
 ## Usage
 ### Middleware
 The `NormalizeUnicode` middleware automatically normalizes all incoming request data to the specified Unicode form. To use it, simply add the middleware to your route or middleware group in `app/Http/Kernel.php`:
