@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use Junholee14\LaravelUnicodeNormalizer\Rules\NormalizeUnicode;
+use Junholee14\LaravelUnicodeNormalizer\Rules\NormalizedUnicode;
 
 test('valid configured normalization form passes', function () {
     // given
@@ -11,7 +11,7 @@ test('valid configured normalization form passes', function () {
     $request = new Request();
     $request->initialize(['name' => $value]);
 
-    $rules = ['name' => new NormalizeUnicode()];
+    $rules = ['name' => new NormalizedUnicode()];
     $validator = app('validator')->make($request->all(), $rules);
 
     // when
@@ -29,7 +29,7 @@ test('invalid configured normalization form fails', function () {
     $request = new Request();
     $request->initialize(['name' => $value]);
 
-    $rules = ['name' => new NormalizeUnicode()];
+    $rules = ['name' => new NormalizedUnicode()];
     $validator = app('validator')->make($request->all(), $rules);
 
     // when
@@ -41,7 +41,7 @@ test('invalid configured normalization form fails', function () {
 
 test('empty value passes', function () {
     // given
-    $rules = ['name' => new NormalizeUnicode()];
+    $rules = ['name' => new NormalizedUnicode()];
     $validator = app('validator')->make(['name' => ''], $rules);
 
     // when
@@ -53,7 +53,7 @@ test('empty value passes', function () {
 
 test('integer passes', function () {
     // given
-    $rules = ['name' => new NormalizeUnicode()];
+    $rules = ['name' => new NormalizedUnicode()];
     $validator = app('validator')->make(['name' => 123], $rules);
 
     // when

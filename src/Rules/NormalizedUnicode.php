@@ -5,7 +5,7 @@ namespace Junholee14\LaravelUnicodeNormalizer\Rules;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Normalizer;
 
-class NormalizeUnicode implements ValidationRule
+class NormalizedUnicode implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
