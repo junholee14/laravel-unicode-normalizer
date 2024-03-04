@@ -37,6 +37,6 @@ The package also provides a `normalize_unicode` validation rule to ensure that d
 
 ```php
 $request->validate([
-    'input_field' => ['required', 'string', new NormalizeUnicode()],
+    'input_field' => ['required', 'string', new NormalizedUnicode()],
 ]);
 ```
